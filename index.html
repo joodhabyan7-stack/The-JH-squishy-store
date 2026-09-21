@@ -3,1684 +3,809 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Squishy Shop</title>
-
+<title>Moonlight Squishies</title>
 <style>
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 body {
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  background: #fffafc;
-  color: #423b43;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  color: #eef7ff;
+  background:
+    radial-gradient(circle at 15% 15%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 75% 20%, #9edcff 0 1px, transparent 2px),
+    radial-gradient(circle at 45% 65%, white 0 1px, transparent 2px),
+    radial-gradient(circle at 90% 75%, #9edcff 0 1px, transparent 2px),
+    linear-gradient(180deg, #020b24, #071d46 55%, #03122f);
+  background-size: 180px 180px, 230px 230px, 260px 260px, 210px 210px, auto;
 }
-
-/* HEADER */
-
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,.94);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #f0e4ec;
-  padding: 16px 6%;
+  padding: 15px;
+  background: rgba(2, 11, 36, .85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(150,220,255,.2);
+}
+.nav {
+  max-width: 1100px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 15px;
 }
-
 .logo {
-  font-size: 24px;
-  font-weight: 900;
-  color: #745b7d;
+  font-size: 21px;
+  font-weight: bold;
 }
-
+.logo span {
+  color: #8fd8ff;
+}
 nav {
   display: flex;
   gap: 7px;
   flex-wrap: wrap;
-  justify-content: flex-end;
 }
-
-nav button {
-  border: none;
-  background: #f8eef8;
-  color: #68556d;
-  padding: 9px 13px;
-  border-radius: 18px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-nav button:hover {
-  background: #eadcf0;
-}
-
-/* HERO */
-
-.hero {
-  padding: 80px 20px 70px;
-  text-align: center;
-  background:
-    radial-gradient(circle at 15% 25%, white 0 5px, transparent 6px),
-    radial-gradient(circle at 80% 30%, white 0 4px, transparent 5px),
-    radial-gradient(circle at 65% 75%, white 0 6px, transparent 7px),
-    linear-gradient(135deg, #ffe8f2, #e4f6ff);
-}
-
-.hero .bubble {
-  display: inline-block;
-  background: white;
-  padding: 7px 15px;
-  border-radius: 20px;
-  font-size: 13px;
-  color: #86678e;
-  font-weight: bold;
-  margin-bottom: 18px;
-}
-
-.hero h1 {
-  font-size: clamp(42px, 8vw, 72px);
-  color: #72577b;
-  line-height: 1;
-}
-
-.hero p {
-  margin-top: 18px;
-  font-size: 18px;
-  color: #716771;
-}
-
-.hero button {
-  margin-top: 28px;
-  border: none;
-  background: #80618b;
+nav button,
+.small-button {
+  border: 1px solid rgba(150,220,255,.25);
+  background: rgba(255,255,255,.07);
   color: white;
-  padding: 14px 25px;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 16px;
+  padding: 9px 12px;
+  border-radius: 12px;
   cursor: pointer;
 }
-
-/* SECTIONS */
-
+nav button:hover,
+.small-button:hover {
+  background: rgba(130,200,255,.18);
+}
+.hero {
+  max-width: 1100px;
+  min-height: 390px;
+  margin: auto;
+  padding: 70px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.moon {
+  position: absolute;
+  top: 45px;
+  right: 10%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #eefaff;
+  box-shadow: 0 0 25px #bceaff, 0 0 70px rgba(120,205,255,.45);
+}
+.moon:after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #020b24;
+  left: 35px;
+  top: -8px;
+}
+.hero-content {
+  max-width: 720px;
+  z-index: 2;
+}
+.welcome {
+  color: #8fd8ff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+h1 {
+  font-size: clamp(45px, 9vw, 78px);
+  margin-bottom: 18px;
+  text-shadow: 0 0 30px rgba(120,205,255,.35);
+}
+.hero p {
+  color: #bed8f2;
+  font-size: 18px;
+  line-height: 1.6;
+}
 section {
-  padding: 50px 7%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
 }
-
 .section-title {
-  text-align: center;
-  color: #674f6d;
-  font-size: 31px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  margin-bottom: 7px;
 }
-
 .section-subtitle {
-  text-align: center;
-  color: #8b7d8d;
-  margin-bottom: 32px;
+  color: #9ebbd8;
+  margin-bottom: 20px;
 }
-
-/* PRODUCTS */
-
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
 }
-
-.product {
-  background: white;
-  border: 1px solid #f0e6ee;
-  border-radius: 28px;
-  padding: 15px;
-  box-shadow: 0 8px 25px rgba(90,60,90,.07);
-  transition: transform .2s, box-shadow .2s;
-}
-
-.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(90,60,90,.12);
-}
-
-.product-image {
-  height: 175px;
+.card,
+.panel {
+  background: rgba(8, 32, 72, .72);
+  border: 1px solid rgba(145,215,255,.2);
   border-radius: 22px;
-  background: linear-gradient(135deg,#ffe5f0,#e5f5ff);
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 40px rgba(0,0,0,.2);
+}
+.card {
+  transition: .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(150,220,255,.45);
+}
+.product-icon {
+  height: 125px;
+  border-radius: 18px;
+  background: rgba(120,200,255,.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 76px;
-  margin-bottom: 16px;
-}
-
-.product h3 {
-  font-size: 19px;
-  margin-bottom: 6px;
-}
-
-.price {
-  color: #80618b;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.product select,
-.product textarea {
-  border: 1px solid #eadfea;
-  border-radius: 12px;
-  padding: 8px;
-  background: #fff;
-}
-
-.product textarea {
-  width: 100%;
-  margin-top: 8px;
-  min-height: 70px;
-  resize: vertical;
-}
-
-.add {
-  width: 100%;
-  margin-top: 12px;
-  border: none;
-  background: #80618b;
-  color: white;
-  padding: 11px;
-  border-radius: 18px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.add:hover {
-  background: #6e5078;
-}
-
-.off-sale {
-  background: #f6f1f6;
-  padding: 9px;
-  border-radius: 13px;
-  color: #8d828d;
-  font-size: 13px;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* PANELS */
-
-.panel {
-  max-width: 1000px;
-  margin: 35px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 28px;
-  box-shadow: 0 8px 30px rgba(80,50,80,.09);
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* CART */
-
-.cart-item {
-  border-bottom: 1px solid #eee5eb;
-  padding: 17px 0;
-}
-
-.cart-item:last-child {
-  border-bottom: none;
-}
-
-.remove {
-  margin-top: 8px;
-  border: none;
-  background: #f8e1e8;
-  color: #9a5367;
-  padding: 7px 12px;
-  border-radius: 14px;
-  cursor: pointer;
-}
-
-.total {
-  margin-top: 22px;
-  padding: 18px;
-  background: #f8f0fa;
-  border-radius: 18px;
-  font-size: 21px;
-  font-weight: bold;
-  color: #684f70;
-}
-
-.checkout {
-  margin-top: 15px;
-  width: 100%;
-  border: none;
-  background: #80618b;
-  color: white;
-  padding: 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* ORDER FORM */
-
-.order-form {
-  margin-top: 25px;
-  padding: 20px;
-  background: #fff8fc;
-  border-radius: 20px;
-}
-
-.order-form input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  border: 1px solid #eadfea;
-  border-radius: 13px;
-}
-
-/* ORDERS */
-
-.order-card,
-.admin-card {
-  background: #faf5fb;
-  padding: 20px;
-  border-radius: 20px;
+  font-size: 62px;
   margin-bottom: 15px;
 }
-
-.order-card h3,
-.admin-card h3 {
-  color: #684f70;
-  margin-bottom: 10px;
+.card h3 {
+  margin-bottom: 7px;
 }
-
+.price {
+  color: #91d9ff;
+  font-size: 18px;
+  font-weight: bold;
+}
+.stock {
+  color: #9db8d2;
+  font-size: 13px;
+  margin-top: 5px;
+}
 .status {
   display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
+  padding: 5px 9px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
+  margin: 10px 0;
 }
-
-.status-new {
-  background: #fff0b7;
+.on-sale {
+  color: #91f5d2;
+  background: rgba(70,220,170,.13);
 }
-
-.status-preparing {
-  background: #dff2ff;
+.off-sale {
+  color: #ffb0b0;
+  background: rgba(255,100,100,.13);
 }
-
-.status-ready {
-  background: #e7dcff;
-}
-
-.status-completed {
-  background: #d9f4dc;
-}
-
-/* ADMIN */
-
-.admin-login {
-  max-width: 430px;
-  margin: 45px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 28px;
-  box-shadow: 0 8px 30px rgba(80,50,80,.09);
-  text-align: center;
-}
-
-.admin-login input {
+.primary {
   width: 100%;
-  padding: 13px;
-  margin: 20px 0 12px;
-  border: 1px solid #eadfea;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 18px;
-  letter-spacing: 4px;
-}
-
-.admin-button {
   border: none;
-  background: #80618b;
+  border-radius: 13px;
+  padding: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #03122f;
+  background: #9bdcff;
+}
+.primary:hover {
+  background: #c5edff;
+}
+.primary:disabled {
+  background: #536981;
+  color: #aebdcb;
+  cursor: not-allowed;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 7px;
+  margin-bottom: 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(150,220,255,.25);
+  background: rgba(255,255,255,.07);
   color: white;
-  padding: 12px 20px;
-  border-radius: 18px;
-  font-weight: bold;
-  cursor: pointer;
+  outline: none;
 }
-
-.admin-toggle {
+select option {
+  color: black;
+}
+label {
+  color: #c5ddf4;
+  font-size: 14px;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(150,220,255,.12);
+}
+.remove {
   border: none;
-  padding: 9px 14px;
-  border-radius: 15px;
+  background: rgba(255,100,100,.12);
+  color: #ffb0b0;
+  padding: 8px 10px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.cart-total {
+  text-align: right;
+  color: #9bdcff;
+  font-size: 22px;
   font-weight: bold;
-  cursor: pointer;
+  margin-top: 18px;
 }
-
-.on {
-  background: #d8f3dd;
-  color: #36734a;
+.order {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(150,220,255,.15);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 12px;
 }
-
-.off {
-  background: #eeeeee;
-  color: #777;
+.order-number {
+  color: #8fd8ff;
+  font-weight: bold;
+  margin-bottom: 6px;
 }
-
-.stock-button {
-  margin-left: 7px;
-  border: none;
-  padding: 9px 12px;
-  border-radius: 15px;
-  cursor: pointer;
-  background: #e7f2ff;
-  color: #49657c;
+.order-status {
+  color: #b7d3eb;
+  margin-top: 8px;
 }
-
-/* FOOTER */
-
+.admin-product {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(150,220,255,.12);
+}
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.success {
+  color: #91f5d2;
+  margin-top: 10px;
+}
+.error {
+  color: #ffabab;
+  margin-top: 10px;
+}
+.hidden {
+  display: none;
+}
 footer {
   text-align: center;
-  padding: 40px 20px;
-  background: #f3e8f5;
-  color: #766879;
-  margin-top: 40px;
+  padding: 50px 20px;
+  color: #718cab;
 }
-
-/* MOBILE */
-
-@media(max-width:650px) {
-
-  header {
-    align-items: flex-start;
-    gap: 12px;
+@media (max-width: 650px) {
+  .nav {
+    flex-direction: column;
   }
-
-  .logo {
-    font-size: 19px;
+  .moon {
+    width: 80px;
+    height: 80px;
+    right: 6%;
   }
-
-  nav button {
-    font-size: 11px;
-    padding: 7px 9px;
+  .moon:after {
+    width: 80px;
+    height: 80px;
   }
-
   .hero {
-    padding-top: 60px;
-  }
-
-  section {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-top: 100px;
   }
 }
 </style>
 </head>
-
 <body>
-
 <header>
-
-  <div class="logo">
-    🧸 Squishy Shop
+  <div class="nav">
+    <div class="logo">🌙 Moonlight <span>Squishies</span></div>
+<nav>
+  <button onclick="showSection('shop')">Shop</button>
+  <button onclick="showSection('cart')">🛒 Cart (<span id="cartCount">0</span>)</button>
+  <button onclick="showSection('orders')">Orders</button>
+  <button onclick="showSection('admin')">Admin</button>
+</nav>
   </div>
-
-  <nav>
-    <button onclick="showHome()">Home</button>
-    <button onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
-    <button onclick="showOrders()">Orders</button>
-    <button onclick="showAdminLogin()">Admin</button>
-  </nav>
-
 </header>
-
-
-<!-- HOME -->
-
-<main id="home">
-
-  <div class="hero">
-
-    <div class="bubble">
-      SOFT • SQUISHY • FUN
-    </div>
-
-    <h1>Squish.<br>Squeeze.<br>Smile. 🧸</h1>
-
+<main>
+<section class="hero">
+  <div class="moon"></div>
+  <div class="hero-content">
+    <div class="welcome">⭐ Welcome to the night sky ⭐</div>
+    <h1>Moonlight Squishies</h1>
     <p>
-      Cute squishies made for squeezing, collecting and gifting.
+      Cute squishies, soft textures, and little things to make your day better.
+      Choose your favorite and place your order under the stars. 🌙
     </p>
-
-    <button onclick="document.getElementById('shop').scrollIntoView()">
-      Shop Now
-    </button>
-
   </div>
-
-
-  <section id="shop">
-
-    <h2 class="section-title">
-      ✨ Our Squishies
-    </h2>
-
-    <p class="section-subtitle">
-      Pick your favorite and make it yours.
-    </p>
-
-    <div class="products" id="productList"></div>
-
-  </section>
-
-</main>
-
-
-<!-- CART -->
-
-<section id="cartPanel" class="panel hidden">
-
-  <h2 class="section-title">
-    🛒 Your Cart
-  </h2>
-
-  <div id="cartItems"></div>
-
-  <div class="total" id="cartTotal"></div>
-
-  <div class="order-form">
-
-    <h3>📋 Order Information</h3>
-
-    <label>
-      Your name
-      <input
-        id="customerName"
-        type="text"
-        placeholder="Enter your name"
-      >
-    </label>
-
-  </div>
-
-  <button class="checkout" onclick="placeOrder()">
-    Place Order
-  </button>
-
 </section>
-
-
-<!-- CUSTOMER ORDERS -->
-
-<section id="ordersPanel" class="panel hidden">
-
-  <h2 class="section-title">
-    📦 My Orders
-  </h2>
-
-  <p class="section-subtitle">
-    Your orders will appear here.
-  </p>
-
+<section id="shop">
+  <h2 class="section-title">⭐ Squishy Shop</h2>
+  <p class="section-subtitle">Choose a squishy to add to your cart.</p>
+  <div id="products" class="products"></div>
+</section>
+<section id="cart" style="display:none;">
+  <h2 class="section-title">🛒 Your Cart</h2>
+  <p class="section-subtitle">Check your order before placing it.</p>
+  <div class="panel">
+    <div id="cartItems"></div>
+    <div id="cartTotal" class="cart-total">Total: 0 SAR</div>
+  </div>
+  <div class="panel" style="margin-top:18px;">
+    <h3>Your Information</h3>
+<label>Your name</label>
+<input id="customerName" type="text" placeholder="Enter your name">
+<button class="primary" onclick="placeOrder()">
+  ⭐ Place Order
+</button>
+<div id="orderMessage"></div>
+  </div>
+</section>
+<section id="orders" style="display:none;">
+  <h2 class="section-title">📦 My Orders</h2>
+  <p class="section-subtitle">Orders saved on this device.</p>
   <div id="ordersList"></div>
-
 </section>
-
-
-<!-- ADMIN LOGIN -->
-
-<section id="adminLogin" class="admin-login hidden">
-
-  <h2>🔐 Owner Login</h2>
-
-  <p style="margin-top:10px;color:#817481;">
-    This area is for the shop owner.
-  </p>
-
-  <input
-    id="adminCode"
-    type="password"
-    inputmode="numeric"
-    placeholder="Admin code"
-  >
-
-  <button class="admin-button" onclick="loginAdmin()">
-    Open Dashboard
-  </button>
-
-  <p
-    id="loginError"
-    style="color:#c25b73;margin-top:12px;"
-  ></p>
-
-</section>
-
-
-<!-- ADMIN -->
-
-<section id="adminPanel" class="panel hidden">
-
-  <h2 class="section-title">
-    🎀 Owner Dashboard
-  </h2>
-
-  <p class="section-subtitle">
-    Manage your products, stock and orders.
-  </p>
-
-
-  <h3>🧸 Product Management</h3>
-
-  <br>
-
-  <div id="adminProducts"></div>
-
-
-  <h3 style="margin-top:35px;">
-    📦 Customer Orders
-  </h3>
-
-  <br>
-
+<section id="admin" style="display:none;">
+  <h2 class="section-title">🌙 Admin</h2>
+  <p class="section-subtitle">Shop management.</p>
+  <div id="adminLogin" class="panel">
+    <h3>Admin Login</h3>
+<label>Admin code</label>
+<input id="adminCode" type="password" placeholder="Enter admin code">
+<button class="primary" onclick="loginAdmin()">
+  Enter Admin
+</button>
+<div id="loginMessage"></div>
+  </div>
+  <div id="adminDashboard" class="hidden">
+<div class="panel">
+  <h3>📦 Customer Orders</h3>
   <div id="adminOrders"></div>
-
+</div>
+<div class="panel" style="margin-top:18px;">
+  <h3>🛍️ Products</h3>
+  <div id="adminProducts"></div>
+</div>
+<div class="panel" style="margin-top:18px;">
+  <button class="small-button" onclick="logoutAdmin()">
+    Log Out
+  </button>
+</div>
+  </div>
 </section>
-
-
+</main>
 <footer>
-
-  <p>
-    Made with 🧸 and lots of squish.
-  </p>
-
+  🌙 Moonlight Squishies ⭐<br>
+  Made under the stars
 </footer>
-
-
 <script>
-
-/* ================================
-   ADMIN CODE
-================================ */
-
-const ADMIN_CODE = "482917";
-
-
-/* ================================
-   PRODUCTS
-================================ */
-
+const ADMIN_CODE = "49987K89";
 let products = [
-
-  {
-    id: 1,
-    name: "3-Pack Small Squishy Balls",
-    emoji: "🟢",
-    price: 15,
-    onSale: true,
-    stock: 10
-  },
-
-  {
-    id: 2,
-    name: "Dumpling Squishy",
-    emoji: "🥟",
-    price: 10,
-    onSale: true,
-    stock: 5
-  },
-
-  {
-    id: 3,
-    name: "Cheese Squishy",
-    emoji: "🧀",
-    price: 10,
-    onSale: true,
-    stock: 4
-  },
-
-  {
-    id: 4,
-    name: "Needoh Squishy",
-    emoji: "🫧",
-    price: 15,
-    onSale: true,
-    stock: 4
-  },
-
-  {
-    id: 5,
-    name: "Paper Squishy",
-    emoji: "📄",
-    price: 8,
-    onSale: true,
-    stock: 10
-  },
-
-  {
-    id: 6,
-    name: "Strawberry Squishy",
-    emoji: "🍓",
-    price: 12,
-    onSale: false,
-    stock: 0
-  },
-
-  {
-    id: 7,
-    name: "Donut Squishy",
-    emoji: "🍩",
-    price: 12,
-    onSale: false,
-    stock: 0
-  },
-
-  {
-    id: 8,
-    name: "Bread Squishy",
-    emoji: "🍞",
-    price: 10,
-    onSale: false,
-    stock: 0
-  },
-
-  {
-    id: 9,
-    name: "Ice Cream Squishy",
-    emoji: "🍦",
-    price: 12,
-    onSale: false,
-    stock: 0
-  },
-
-  {
-    id: 10,
-    name: "Burger Squishy",
-    emoji: "🍔",
-    price: 15,
-    onSale: false,
-    stock: 0
-  },
-
-  {
-    id: 11,
-    name: "Cloud Squishy",
-    emoji: "☁️",
-    price: 10,
-    onSale: false,
-    stock: 0
-  },
-
-  {
-    id: 12,
-    name: "Animal Squishy",
-    emoji: "🐱",
-    price: 12,
-    onSale: false,
-    stock: 0
-  },
-
-  {
-    id: 13,
-    name: "Fruit Squishy",
-    emoji: "🍉",
-    price: 10,
-    onSale: false,
-    stock: 0
-  }
-
+  {id:1,name:"3-Pack Small Squishy Balls",icon:"🟢",price:15,stock:10,onSale:true},
+  {id:2,name:"Dumpling Squishy",icon:"🥟",price:10,stock:5,onSale:true},
+  {id:3,name:"Cheese Squishy",icon:"🧀",price:10,stock:4,onSale:true},
+  {id:4,name:"Needoh Squishy",icon:"🫧",price:15,stock:4,onSale:true},
+  {id:5,name:"Paper Squishy",icon:"📄",price:8,stock:10,onSale:true},
+  {id:6,name:"Strawberry Squishy",icon:"🍓",price:12,stock:0,onSale:false},
+  {id:7,name:"Donut Squishy",icon:"🍩",price:12,stock:0,onSale:false},
+  {id:8,name:"Bread Squishy",icon:"🍞",price:10,stock:0,onSale:false},
+  {id:9,name:"Ice Cream Squishy",icon:"🍦",price:12,stock:0,onSale:false},
+  {id:10,name:"Burger Squishy",icon:"🍔",price:15,stock:0,onSale:false},
+  {id:11,name:"Cloud Squishy",icon:"☁️",price:10,stock:0,onSale:false},
+  {id:12,name:"Animal Squishy",icon:"🐱",price:12,stock:0,onSale:false},
+  {id:13,name:"Fruit Squishy",icon:"🍉",price:10,stock:0,onSale:false}
 ];
-
-
 let cart = [];
-let orders = [];
-
-
-/* ================================
-   PRODUCT DISPLAY
-================================ */
-
+let orders = JSON.parse(
+  localStorage.getItem("moonlightOrders") || "[]"
+);
 function renderProducts() {
-
-  const list = document.getElementById("productList");
-
-  list.innerHTML = "";
-
-
+  const box = document.getElementById("products");
+  box.innerHTML = "";
   products.forEach(product => {
-
-    const div = document.createElement("div");
-
-    div.className = "product";
-
-
+    let unavailable =
+      !product.onSale || product.stock <= 0;
+    let status;
     if (!product.onSale) {
-
-      div.innerHTML = `
-
-        <div class="product-image">
-          ${product.emoji}
-        </div>
-
-        <h3>
-          ${product.name}
-        </h3>
-
-        <div class="off-sale">
-          Currently Off Sale
-        </div>
-
-      `;
-
+      status = '<span class="status off-sale">OFF SALE</span>';
+    } else if (product.stock <= 0) {
+      status = '<span class="status off-sale">SOLD OUT</span>';
+    } else {
+      status = '<span class="status on-sale">ON SALE</span>';
     }
-
-
-    else if (product.stock <= 0) {
-
-      div.innerHTML = `
-
-        <div class="product-image">
-          ${product.emoji}
+    box.innerHTML += `
+      <div class="card">
+        <div class="product-icon">
+          ${product.icon}
         </div>
-
-        <h3>
-          ${product.name}
-        </h3>
-
-        <div class="off-sale">
-          Sold Out
-        </div>
-
-      `;
-
-    }
-
-
-    else {
-
-      div.innerHTML = `
-
-        <div class="product-image">
-          ${product.emoji}
-        </div>
-
-        <h3>
-          ${product.name}
-        </h3>
-
-        <p class="price">
+        <h3>${product.name}</h3>
+        <div class="price">
           ${product.price} SAR
-        </p>
-
-
-        <label>
-          Texture:
-          <select id="texture-${product.id}">
-            <option>Soft</option>
-            <option>Hard</option>
-          </select>
-        </label>
-
-
-        <br><br>
-
-
-        <label>
-          Special request?
-          <select
-            id="request-${product.id}"
-            onchange="toggleRequest(${product.id})"
-          >
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-          </select>
-        </label>
-
-
-        <textarea
-          id="requestText-${product.id}"
-          class="hidden"
-          placeholder="Write your special request..."
-        ></textarea>
-
-
+        </div>
+        <div class="stock">
+          ${product.stock > 0
+            ? product.stock + " available"
+            : "Currently unavailable"}
+        </div>
+        ${status}
         <button
-          class="add"
+          class="primary"
           onclick="addToCart(${product.id})"
-        >
-          Add to Cart
+          ${unavailable ? "disabled" : ""}>
+          ${!product.onSale
+            ? "Not Available"
+            : product.stock <= 0
+            ? "Sold Out"
+            : "Add to Cart"}
         </button>
-
-      `;
-
-    }
-
-
-    list.appendChild(div);
-
+      </div>
+    `;
   });
-
 }
-
-
-/* ================================
-   SPECIAL REQUEST
-================================ */
-
-function toggleRequest(id) {
-
-  const choice =
-    document.getElementById("request-" + id).value;
-
-
-  document
-    .getElementById("requestText-" + id)
-    .classList
-    .toggle(
-      "hidden",
-      choice !== "yes"
-    );
-
-}
-
-
-/* ================================
-   CART
-================================ */
-
 function addToCart(id) {
-
   const product =
     products.find(p => p.id === id);
-
-
-  const texture =
-    document.getElementById(
-      "texture-" + id
-    ).value;
-
-
-  const requestChoice =
-    document.getElementById(
-      "request-" + id
-    ).value;
-
-
-  let request = "";
-
-
-  if (requestChoice === "yes") {
-
-    request =
-      document.getElementById(
-        "requestText-" + id
-      ).value.trim();
-
+  if (!product || !product.onSale || product.stock <= 0) {
+    return;
   }
-
-
-  cart.push({
-
-    productId: id,
-
-    name: product.name,
-
-    price: product.price,
-
-    texture: texture,
-
-    request: request
-
-  });
-
-
-  updateCartCount();
-
-
-  alert(
-    product.name +
-    " was added to your cart! 🧸"
-  );
-
+  const existing =
+    cart.find(item => item.id === id);
+  if (existing) {
+    if (existing.quantity < product.stock) {
+      existing.quantity++;
+    }
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      icon: product.icon,
+      price: product.price,
+      quantity: 1
+    });
+  }
+  renderCart();
+  showSection("cart");
 }
-
-
-function updateCartCount() {
-
-  document.getElementById(
-    "cartCount"
-  ).textContent = cart.length;
-
-}
-
-
 function renderCart() {
-
   const box =
     document.getElementById("cartItems");
-
-
-  if (cart.length === 0) {
-
-    box.innerHTML =
-      "<p>Your cart is empty. 🧸</p>";
-
-    document.getElementById(
-      "cartTotal"
-    ).textContent = "";
-
-    return;
-
-  }
-
-
   box.innerHTML = "";
-
-
   let total = 0;
-
-
-  cart.forEach((item,index) => {
-
-    total += item.price;
-
-
-    box.innerHTML += `
-
-      <div class="cart-item">
-
-        <strong>
-          ${item.name}
-        </strong>
-
-        <br>
-
-        Texture:
-        ${item.texture}
-
-        <br>
-
-        ${
-          item.request
-          ? "🎁 Special request: " +
-            item.request
-          : "No special request"
-        }
-
-        <br>
-
-        <strong>
-          ${item.price} SAR
-        </strong>
-
-        <br>
-
-        <button
-          class="remove"
-          onclick="removeFromCart(${index})"
-        >
-          Remove
-        </button>
-
-      </div>
-
-    `;
-
-  });
-
-
-  document.getElementById(
-    "cartTotal"
-  ).textContent =
-    "Total: " + total + " SAR";
-
-}
-
-
-function removeFromCart(index) {
-
-  cart.splice(index,1);
-
-  updateCartCount();
-
-  renderCart();
-
-}
-
-
-/* ================================
-   ORDERS
-================================ */
-
-function placeOrder() {
-
+  let count = 0;
   if (cart.length === 0) {
-
-    alert(
-      "Your cart is empty."
-    );
-
-    return;
-
-  }
-
-
-  const customerName =
-    document.getElementById(
-      "customerName"
-    ).value.trim();
-
-
-  if (!customerName) {
-
-    alert(
-      "Please enter your name before ordering."
-    );
-
-    return;
-
-  }
-
-
-  const total =
-    cart.reduce(
-      (sum,item) =>
-        sum + item.price,
-      0
-    );
-
-
-  const order = {
-
-    id:
-      Math.floor(
-        1000 +
-        Math.random() * 9000
-      ),
-
-    customer:
-      customerName,
-
-    date:
-      new Date()
-        .toLocaleDateString(),
-
-    items:
-      [...cart],
-
-    total:
-      total,
-
-    status:
-      "New"
-
-  };
-
-
-  orders.push(order);
-
-
-  cart = [];
-
-
-  updateCartCount();
-
-
-  alert(
-    "Order placed! 🎉\n\n" +
-    "Order #" +
-    order.id +
-    "\n" +
-    "Estimated preparation: 5–6 days."
-  );
-
-
-  showOrders();
-
-}
-
-
-/* ================================
-   NAVIGATION
-================================ */
-
-function hideAll() {
-
-  document.getElementById(
-    "home"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "cartPanel"
-  ).classList.add("hidden");
-
-
-  document.getElementById(
-    "ordersPanel"
-  ).classList.add("hidden");
-
-
-  document.getElementById(
-    "adminLogin"
-  ).classList.add("hidden");
-
-
-  document.getElementById(
-    "adminPanel"
-  ).classList.add("hidden");
-
-}
-
-
-function showHome() {
-
-  hideAll();
-
-  document.getElementById(
-    "home"
-  ).style.display = "block";
-
-}
-
-
-function showCart() {
-
-  hideAll();
-
-  document.getElementById(
-    "cartPanel"
-  ).classList.remove("hidden");
-
-  renderCart();
-
-}
-
-
-function showOrders() {
-
-  hideAll();
-
-  document.getElementById(
-    "ordersPanel"
-  ).classList.remove("hidden");
-
-  renderOrders();
-
-}
-
-
-/* ================================
-   CUSTOMER ORDERS
-================================ */
-
-function renderOrders() {
-
-  const box =
-    document.getElementById(
-      "ordersList"
-    );
-
-
-  if (orders.length === 0) {
-
     box.innerHTML =
-      "<p>No orders yet.</p>";
-
-    return;
-
-  }
-
-
-  box.innerHTML = "";
-
-
-  orders.forEach(order => {
-
-    box.innerHTML += `
-
-      <div class="order-card">
-
-        <h3>
-          Order #${order.id}
-        </h3>
-
-        <p>
-          <strong>
-            Customer:
-          </strong>
-          ${order.customer}
-        </p>
-
-        <p>
-          Date:
-          ${order.date}
-        </p>
-
-        <br>
-
-        ${order.items.map(item => `
-
-          <p>
-
-            🧸
-            ${item.name}
-
-            <br>
-
-            Texture:
-            ${item.texture}
-
-            <br>
-
-            ${
-              item.request
-              ? "🎁 Request: " +
-                item.request
-              : ""
-            }
-
-          </p>
-
-        `).join("<br>")}
-
-
-        <br>
-
-        <strong>
-          Total:
-          ${order.total} SAR
-        </strong>
-
-        <br>
-
-        <span class="status status-${order.status.toLowerCase()}">
-          ${order.status}
-        </span>
-
-      </div>
-
-    `;
-
-  });
-
-}
-
-
-/* ================================
-   ADMIN
-================================ */
-
-function showAdminLogin() {
-
-  hideAll();
-
-  document.getElementById(
-    "adminLogin"
-  ).classList.remove("hidden");
-
-}
-
-
-function loginAdmin() {
-
-  const code =
-    document.getElementById(
-      "adminCode"
-    ).value;
-
-
-  if (code === ADMIN_CODE) {
-
-    document.getElementById(
-      "adminLogin"
-    ).classList.add("hidden");
-
-
-    document.getElementById(
-      "adminPanel"
-    ).classList.remove("hidden");
-
-
-    renderAdmin();
-
-
+      '<p style="color:#9ebbd8;">Your cart is empty. 🌙</p>';
   } else {
-
-    document.getElementById(
-      "loginError"
-    ).textContent =
-      "Incorrect admin code.";
-
+    cart.forEach((item,index) => {
+      total += item.price * item.quantity;
+      count += item.quantity;
+      box.innerHTML += `
+        <div class="cart-item">
+          <div>
+            ${item.icon}
+            <strong>${item.name}</strong>
+            <br>
+            <small>
+              ${item.quantity} × ${item.price} SAR
+            </small>
+          </div>
+          <button
+            class="remove"
+            onclick="removeFromCart(${index})">
+            Remove
+          </button>
+        </div>
+      `;
+    });
   }
-
+  document.getElementById("cartTotal").textContent =
+    "Total: " + total + " SAR";
+  document.getElementById("cartCount").textContent =
+    count;
 }
-
-
-/* ================================
-   ADMIN PRODUCTS
-================================ */
-
-function renderAdmin() {
-
-  const box =
-    document.getElementById(
-      "adminProducts"
-    );
-
-
-  box.innerHTML = "";
-
-
-  products.forEach(product => {
-
-    box.innerHTML += `
-
-      <div class="admin-card">
-
-        <h3>
-          ${product.emoji}
-          ${product.name}
-        </h3>
-
-        <p>
-          Price:
-          <strong>
-            ${product.price} SAR
-          </strong>
-        </p>
-
-        <p>
-          Stock:
-          <strong>
-            ${product.stock}
-          </strong>
-        </p>
-
-        <br>
-
-
-        <button
-          class="admin-toggle ${
-            product.onSale
-            ? "on"
-            : "off"
-          }"
-          onclick="toggleSale(${product.id})"
-        >
-
-          ${
-            product.onSale
-            ? "🟢 ON SALE"
-            : "⚪ OFF SALE"
-          }
-
-        </button>
-
-
-        <button
-          class="stock-button"
-          onclick="changeStock(${product.id})"
-        >
-          Change Stock
-        </button>
-
-      </div>
-
-    `;
-
-  });
-
-
-  renderAdminOrders();
-
+function removeFromCart(index) {
+  cart.splice(index,1);
+  renderCart();
 }
-
-
-function toggleSale(id) {
-
-  const product =
-    products.find(
-      p => p.id === id
+function placeOrder() {
+  if (cart.length === 0) {
+    showMessage(
+      "orderMessage",
+      "Your cart is empty.",
+      true
     );
-
-
-  product.onSale =
-    !product.onSale;
-
-
-  renderProducts();
-
-  renderAdmin();
-
-}
-
-
-function changeStock(id) {
-
-  const product =
-    products.find(
-      p => p.id === id
-    );
-
-
-  const newStock =
-    prompt(
-      "Enter new stock amount:",
-      product.stock
-    );
-
-
-  if (
-    newStock !== null &&
-    !isNaN(newStock)
-  ) {
-
-    product.stock =
-      Math.max(
-        0,
-        Number(newStock)
-      );
-
-
-    renderProducts();
-
-    renderAdmin();
-
-  }
-
-}
-
-
-/* ================================
-   ADMIN ORDERS
-================================ */
-
-function renderAdminOrders() {
-
-  const box =
-    document.getElementById(
-      "adminOrders"
-    );
-
-
-  if (orders.length === 0) {
-
-    box.innerHTML =
-      "<p>No customer orders yet.</p>";
-
     return;
-
   }
-
-
+  const name =
+    document.getElementById("customerName")
+    .value.trim();
+  if (!name) {
+    showMessage(
+      "orderMessage",
+      "Please enter your name.",
+      true
+    );
+    return;
+  }
+  let total = 0;
+  cart.forEach(item => {
+    const product =
+      products.find(p => p.id === item.id);
+    if (product) {
+      product.stock -= item.quantity;
+      total +=
+        item.price * item.quantity;
+    }
+  });
+  const orderNumber =
+    "MS-" +
+    Math.floor(
+      100000 + Math.random() * 900000
+    );
+  const order = {
+    number: orderNumber,
+    name: name,
+    items: JSON.parse(JSON.stringify(cart)),
+    total: total,
+    status: "New",
+    date: new Date().toLocaleString()
+  };
+  orders.push(order);
+  localStorage.setItem(
+    "moonlightOrders",
+    JSON.stringify(orders)
+  );
+  cart = [];
+  document.getElementById("customerName").value = "";
+  renderProducts();
+  renderCart();
+  renderOrders();
+  renderAdminOrders();
+  renderAdminProducts();
+  showMessage(
+    "orderMessage",
+    "Order placed! Your order number is " +
+    orderNumber + ". ⭐",
+    false
+  );
+}
+function renderOrders() {
+  const box =
+    document.getElementById("ordersList");
   box.innerHTML = "";
-
-
-  orders.forEach(order => {
-
+  if (orders.length === 0) {
+    box.innerHTML =
+      '<div class="panel">No orders yet.</div>';
+    return;
+  }
+  orders.slice().reverse().forEach(order => {
+    let items = "";
+    order.items.forEach(item => {
+      items +=
+        item.icon + " " +
+        item.name +
+        " × " +
+        item.quantity +
+        "<br>";
+    });
     box.innerHTML += `
-
-      <div class="admin-card">
-
-        <h3>
-          📦 Order #${order.id}
-        </h3>
-
-        <p>
-          <strong>
-            Customer:
-          </strong>
-          ${order.customer}
+      <div class="order">
+        <div class="order-number">
+          ${order.number}
+        </div>
+        <strong>${order.name}</strong>
+        <p style="margin-top:9px;">
+          ${items}
         </p>
-
-        <p>
-          Date:
-          ${order.date}
-        </p>
-
-        <br>
-
-        ${order.items.map(item => `
-
-          <p>
-
-            🧸
-            ${item.name}
-
-            <br>
-
-            Texture:
-            ${item.texture}
-
-            <br>
-
-            ${
-              item.request
-              ? "🎁 Special request: " +
-                item.request
-              : "No special request"
-            }
-
-          </p>
-
-        `).join("<br>")}
-
-
-        <br>
-
-        <strong>
+        <p style="margin-top:8px;">
           Total:
-          ${order.total} SAR
+          <strong>${order.total} SAR</strong>
+        </p>
+        <div class="order-status">
+          Status: ${order.status}
+        </div>
+        <small style="color:#718cab;">
+          ${order.date}
+        </small>
+      </div>
+    `;
+  });
+}
+function loginAdmin() {
+  const entered =
+    document.getElementById("adminCode").value;
+  if (entered === ADMIN_CODE) {
+    document.getElementById("adminLogin")
+      .style.display = "none";
+    document.getElementById("adminDashboard")
+      .classList.remove("hidden");
+    renderAdminOrders();
+    renderAdminProducts();
+  } else {
+    showMessage(
+      "loginMessage",
+      "Incorrect admin code.",
+      true
+    );
+  }
+}
+function logoutAdmin() {
+  document.getElementById("adminDashboard")
+    .classList.add("hidden");
+  document.getElementById("adminLogin")
+    .style.display = "block";
+  document.getElementById("adminCode").value = "";
+}
+function renderAdminOrders() {
+  const box =
+    document.getElementById("adminOrders");
+  if (!box) return;
+  box.innerHTML = "";
+  if (orders.length === 0) {
+    box.innerHTML =
+      '<p style="color:#9ebbd8;">No orders yet.</p>';
+    return;
+  }
+  orders.slice().reverse().forEach((order,reverseIndex) => {
+    const actualIndex =
+      orders.length - 1 - reverseIndex;
+    let items = "";
+    order.items.forEach(item => {
+      items +=
+        item.icon + " " +
+        item.name +
+        " × " +
+        item.quantity +
+        " — " +
+        (item.price * item.quantity) +
+        " SAR<br>";
+    });
+    box.innerHTML += `
+      <div class="order">
+        <div class="order-number">
+          ${order.number}
+        </div>
+        <strong>
+          Customer: ${order.name}
         </strong>
-
-        <br><br>
-
-
+        <p style="margin-top:9px;">
+          ${items}
+        </p>
+        <p style="margin-top:8px;">
+          Total:
+          <strong>${order.total} SAR</strong>
+        </p>
+        <label>Status</label>
         <select
-          onchange="
-            updateOrderStatus(
-              ${order.id},
-              this.value
-            )
-          "
-        >
-
-          <option
-            ${
-              order.status === "New"
-              ? "selected"
-              : ""
-            }
-          >
+          onchange="changeOrderStatus(${actualIndex},this.value)">
+          <option ${order.status === "New" ? "selected" : ""}>
             New
           </option>
-
-          <option
-            ${
-              order.status === "Preparing"
-              ? "selected"
-              : ""
-            }
-          >
+          <option ${order.status === "Preparing" ? "selected" : ""}>
             Preparing
           </option>
-
-          <option
-            ${
-              order.status === "Ready"
-              ? "selected"
-              : ""
-            }
-          >
+          <option ${order.status === "Ready" ? "selected" : ""}>
             Ready
           </option>
-
-          <option
-            ${
-              order.status === "Completed"
-              ? "selected"
-              : ""
-            }
-          >
+          <option ${order.status === "Completed" ? "selected" : ""}>
             Completed
           </option>
-
         </select>
-
       </div>
-
     `;
-
   });
-
 }
-
-
-function updateOrderStatus(
-  id,
-  status
-) {
-
-  const order =
-    orders.find(
-      o => o.id === id
+function changeOrderStatus(index,status) {
+  orders[index].status = status;
+  localStorage.setItem(
+    "moonlightOrders",
+    JSON.stringify(orders)
+  );
+  renderOrders();
+  renderAdminOrders();
+}
+function renderAdminProducts() {
+  const box =
+    document.getElementById("adminProducts");
+  if (!box) return;
+  box.innerHTML = "";
+  products.forEach((product,index) => {
+    box.innerHTML += `
+      <div class="admin-product">
+        <strong>
+          ${product.icon} ${product.name}
+        </strong>
+        <p style="margin-top:6px;">
+          Price: ${product.price} SAR<br>
+          Stock: ${product.stock}<br>
+          Status:
+          ${product.onSale ? "ON SALE" : "OFF SALE"}
+        </p>
+        <div class="admin-actions">
+          <button
+            class="small-button"
+            onclick="toggleSale(${index})">
+            ${product.onSale
+              ? "Turn OFF Sale"
+              : "Put ON Sale"}
+          </button>
+          <button
+            class="small-button"
+            onclick="changeStock(${index},1)">
+            + Stock
+          </button>
+          <button
+            class="small-button"
+            onclick="changeStock(${index},-1)">
+            - Stock
+          </button>
+        </div>
+      </div>
+    `;
+  });
+}
+function toggleSale(index) {
+  products[index].onSale =
+    !products[index].onSale;
+  renderProducts();
+  renderAdminProducts();
+}
+function changeStock(index,amount) {
+  products[index].stock =
+    Math.max(
+      0,
+      products[index].stock + amount
     );
-
-
-  if (order) {
-
-    order.status =
-      status;
-
-
-    renderOrders();
-
-    renderAdminOrders();
-
-  }
-
+  renderProducts();
+  renderAdminProducts();
 }
-
-
-/* ================================
-   START
-================================ */
-
+function showSection(section) {
+  const sections = [
+    "shop",
+    "cart",
+    "orders",
+    "admin"
+  ];
+  sections.forEach(id => {
+    document.getElementById(id).style.display =
+      id === section ? "block" : "none";
+  });
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+  if (section === "orders") {
+    renderOrders();
+  }
+}
+function showMessage(id,message,error) {
+  const element =
+    document.getElementById(id);
+  element.className =
+    error ? "error" : "success";
+  element.textContent =
+    message;
+}
 renderProducts();
-
+renderCart();
+renderOrders();
 </script>
-
 </body>
 </html>
